@@ -12,14 +12,11 @@ type ProductsQueryParams = {
 
 const fetchProducts = async ({ take, lastCursor }: ProductsQueryParams) => {
   const res = await fetch(
-    "/api/products?lastCursor=" + lastCursor + "&take=" + 40
+    "/api/products?lastCursor=" + lastCursor + "&take=" + take
   );
   return res.json();
 };
-export function ListProductsInfinity({
-  take,
-  lastCursor,
-}: ProductsQueryParams) {
+export function ListProductsInfinity() {
   const { ref, inView } = useInView();
   const {
     data,
